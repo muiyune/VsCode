@@ -1,0 +1,433 @@
+/* Стили для страницы оформления заказа */
+.checkout-page {
+    padding: 40px 0 80px;
+    min-height: calc(100vh - 300px);
+}
+
+.checkout-header {
+    margin-bottom: 40px;
+}
+
+.page-title {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 15px;
+    color: var(--dark);
+}
+
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    color: var(--dark-light);
+    font-size: 14px;
+}
+
+.breadcrumbs a {
+    color: var(--dark-light);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.breadcrumbs a:hover {
+    color: var(--primary);
+}
+
+.breadcrumbs i {
+    font-size: 10px;
+}
+
+/* Контейнер */
+.checkout-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+}
+
+/* Форма оформления */
+.checkout-form-section {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.form-card {
+    padding: 30px;
+}
+
+.form-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: var(--dark);
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--light);
+}
+
+.checkout-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-group {
+    margin-bottom: 5px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--gray);
+    border-radius: 8px;
+    font-size: 15px;
+    transition: var(--transition);
+    background-color: var(--white);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+}
+
+.form-input[readonly] {
+    background-color: var(--light);
+    cursor: not-allowed;
+}
+
+textarea.form-input {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Способы оплаты */
+.payment-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.payment-method {
+    display: block;
+    cursor: pointer;
+}
+
+.payment-method input {
+    display: none;
+}
+
+.payment-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border: 2px solid var(--gray);
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.payment-method input:checked + .payment-content {
+    border-color: var(--primary);
+    background-color: rgba(255, 107, 107, 0.05);
+}
+
+.payment-content i {
+    font-size: 24px;
+    color: var(--primary);
+    width: 40px;
+    flex-shrink: 0;
+}
+
+.payment-content strong {
+    display: block;
+    font-size: 15px;
+    margin-bottom: 3px;
+    color: var(--dark);
+}
+
+.payment-content p {
+    font-size: 13px;
+    color: var(--dark-light);
+    margin: 0;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+    color: var(--dark);
+    font-size: 14px;
+    line-height: 1.4;
+    user-select: none;
+}
+
+.checkbox-label input {
+    display: none;
+}
+
+.checkbox-custom {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--gray);
+    border-radius: 4px;
+    position: relative;
+    transition: var(--transition);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.checkbox-label input:checked + .checkbox-custom {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.checkbox-label input:checked + .checkbox-custom::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.checkbox-label a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.checkbox-label a:hover {
+    text-decoration: underline;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 20px;
+    padding-top: 25px;
+    border-top: 1px solid var(--light);
+}
+
+/* Сводка заказа */
+.order-summary-section {
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+}
+
+.summary-card {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    padding: 30px;
+    box-shadow: var(--box-shadow);
+}
+
+.summary-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--light);
+    color: var(--dark);
+}
+
+.order-items {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 25px;
+    padding-right: 10px;
+}
+
+.order-item {
+    display: grid;
+    grid-template-columns: 60px 1fr auto;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--light);
+}
+
+.order-item:last-child {
+    border-bottom: none;
+}
+
+.item-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item-info h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--dark);
+}
+
+.item-info p {
+    font-size: 12px;
+    color: var(--dark-light);
+    margin: 2px 0;
+}
+
+.item-total {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--dark);
+    white-space: nowrap;
+}
+
+.summary-totals {
+    margin-bottom: 25px;
+    padding-top: 20px;
+    border-top: 1px solid var(--light);
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: var(--dark);
+}
+
+.total-row span:first-child {
+    color: var(--dark-light);
+}
+
+.total-row .free {
+    color: var(--success);
+    font-weight: 600;
+}
+
+.total-row .discount {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.total-row.total {
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 2px solid var(--light);
+}
+
+.total-amount {
+    color: var(--primary);
+    font-size: 22px;
+}
+
+.delivery-info {
+    padding: 20px;
+    background-color: var(--light);
+    border-radius: 8px;
+    margin-top: 25px;
+}
+
+.delivery-info h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--dark);
+}
+
+.delivery-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.delivery-info li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 8px;
+    font-size: 13px;
+    color: var(--dark-light);
+    line-height: 1.4;
+}
+
+.delivery-info li:before {
+    content: '✓';
+    color: var(--success);
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+/* Адаптивность */
+@media (max-width: 992px) {
+    .checkout-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .order-summary-section {
+        position: static;
+    }
+    
+    .page-title {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    .checkout-page {
+        padding: 20px 0 40px;
+    }
+    
+    .form-card {
+        padding: 20px;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .order-items {
+        max-height: 200px;
+    }
+}
+
+@media (max-width: 576px) {
+    .payment-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .payment-content i {
+        width: auto;
+    }
+    
+    .order-item {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .item-image {
+        margin: 0 auto;
+    }
+}
